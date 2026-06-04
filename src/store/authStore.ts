@@ -1,23 +1,25 @@
-// src/store/authStore.ts
+import { create } from "zustand";
 
-import { create } from 'zustand';
+type AuthState = {
+    isAuthenticated: boolean;
+    token: string |null;
 
-interface AuthState {
-  token: string | null;
-  login: (token: string) => void;
-  logout: () => void;
+    login:(token:string)=>void;
+    logout:()=>void;
+
 }
 
-export const useAuthStore = create<AuthState>((set) => ({
-  token: null,
+export const useAuthStore = create<AuthState>((set)=>({
+    isAuthenticated: false,
+    token: null,
 
-  login: (token) =>
-    set({
-      token,
-    }),
-
-  logout: () =>
-    set({
-      token: null,
-    }),
-}));
+    login:(token)=>
+        set({
+            isAuthenticated:true,
+            token,
+        }),
+    logout:()=>set({
+        isAuthenticated:false,
+        token:null,
+    })
+}))

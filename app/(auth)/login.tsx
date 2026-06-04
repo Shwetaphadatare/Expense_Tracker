@@ -1,21 +1,27 @@
-// src/app/(auth)/login.tsx
-
-import { View, Text, Pressable } from 'react-native';
+import { View, Text, Button } from 'react-native';
 import { router } from 'expo-router';
-import Screen from '@/components/ui/Screen';
+import { useAuthStore } from '@/store/authStore';
+import { saveToken } from '@/services/storage/authStorage';
 
-export default function LoginScreen() {
+
+export default function Login() {
+  const login = useAuthStore((state) => state.login);
+
+  const handleLogin = async () => {
+    const fakeToken = 'user_token';
+
+    await saveToken(fakeToken);
+
+    login(fakeToken);
+
+    router.replace('/(tabs)/dashboard');
+  };
+
   return (
-    <Screen>
-      <View className="flex-1 items-center justify-center">
-        <Text className="mb-8 text-3xl font-bold">Login</Text>
+    <View className="flex-1 items-center justify-center">
+      <Text className="mb-4 text-2xl font-bold">Login</Text>
 
-        <Pressable
-          onPress={() => router.replace('/(tabs)/dashboard')}
-          className="rounded-xl bg-green-500 px-6 py-4">
-          <Text className="text-white">Mock Login</Text>
-        </Pressable>
-      </View>
-    </Screen>
+      <Button title="Login" onPress={handleLogin} />
+    </View>
   );
 }
