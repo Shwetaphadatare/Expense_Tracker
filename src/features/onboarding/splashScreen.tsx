@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { View, Text, Image, ImageBackground } from 'react-native';
 
+
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
@@ -35,7 +36,7 @@ export default function SplashScreen() {
 
   return (
     <ImageBackground
-      source={require('src/assets/splashscreen_bg.png')}
+      source={require('../../assets/splashscreen_bg.png')}
       resizeMode="cover"
       className="flex-1">
       {/* Dark overlay */}
@@ -45,7 +46,6 @@ export default function SplashScreen() {
           backgroundColor: 'rgba(0,0,0,0.35)',
         }}
       />
-
       <View className="flex-1 items-center justify-center px-6">
         <Animated.View style={animatedStyle} className="flex-1 items-center justify-center">
           {/* Glass Card */}

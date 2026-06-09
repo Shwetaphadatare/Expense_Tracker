@@ -2,7 +2,8 @@ import { setOnboardingCompleted } from '@/services/storage/appStorage';
 import { router } from 'expo-router';
 import { TouchableOpacity, View,Image, Text, Dimensions } from 'react-native';
 import { ChevronRight } from 'lucide-react-native';
-const { width } = Dimensions.get('window');
+import { wp } from '@/utils/responsive';
+
 export default function Screen3() {
     const handleContinue = async () => {
         await setOnboardingCompleted();
@@ -21,8 +22,8 @@ export default function Screen3() {
         <Image
           source={require('src/assets/screen3.png')}
           style={{
-            width: width * 1.2,
-            height: width * 1.2,
+            width: wp(120),
+            height: wp(120),
           }}
           resizeMode="contain"
         />
@@ -48,7 +49,7 @@ export default function Screen3() {
       <TouchableOpacity
         onPress={handleContinue}
         className="mb-10 h-16 flex-row items-center justify-center rounded-full bg-emerald-800">
-        <Text className="text-lg font-semibold text-white">Next</Text>
+        <Text className="text-lg font-semibold text-white">Get Started</Text>
 
         <View className="absolute right-3 h-12 w-12 items-center justify-center rounded-full bg-white">
           <ChevronRight size={20} color="#004f3b" />

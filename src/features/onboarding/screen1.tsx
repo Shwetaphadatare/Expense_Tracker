@@ -2,9 +2,10 @@ import { View, Image,Text, TouchableOpacity, Dimensions } from 'react-native';
 import { router } from 'expo-router';
 import { ArrowRight, ChevronRight } from 'lucide-react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { wp } from '@/utils/responsive';
 
 
-const { width } = Dimensions.get('window');
+
 export default function Screen1() {
 
   return (
@@ -19,8 +20,8 @@ export default function Screen1() {
         <Image
           source={require('src/assets/screen1.png')}
           style={{
-            width: width * 1.7,
-            height: width * 1.8,
+            width: wp(150),
+            height: wp(150),
           }}
           resizeMode="contain"
         />

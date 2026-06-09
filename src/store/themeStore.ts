@@ -1,19 +1,21 @@
-// src/store/themeStore.ts
-
 import { create } from 'zustand';
 
-type ThemeMode = 'light' | 'dark';
+export type ThemeMode = 'system' | 'light' | 'dark';
 
-interface ThemeState {
+export type AccentColor = 'purple' | 'green' | 'orange' | 'navy';
+
+type ThemeStore = {
   mode: ThemeMode;
-  toggleTheme: () => void;
-}
+  accent: AccentColor;
 
-export const useThemeStore = create<ThemeState>((set, get) => ({
-  mode: 'light',
+  setMode: (mode: ThemeMode) => void;
+  setAccent: (accent: AccentColor) => void;
+};
 
-  toggleTheme: () =>
-    set({
-      mode: get().mode === 'light' ? 'dark' : 'light',
-    }),
+export const useThemeStore = create<ThemeStore>((set) => ({
+  mode: 'system',
+  accent: 'green',
+
+  setMode: (mode) => set({ mode }),
+  setAccent: (accent) => set({ accent }),
 }));

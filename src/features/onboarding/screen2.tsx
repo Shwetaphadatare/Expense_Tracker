@@ -5,7 +5,8 @@
 import { View, Image, Text, TouchableOpacity, Dimensions } from 'react-native';
 import { router } from 'expo-router';
 import { ArrowRight, ChevronRight } from 'lucide-react-native';
-const { width } = Dimensions.get('window');
+import { wp } from '@/utils/responsive';
+
 export default function Screen2() {
   return (
     <View className="flex-1 bg-white px-6 pt-16 py-4">
@@ -19,8 +20,8 @@ export default function Screen2() {
         <Image
           source={require('src/assets/screen2.png')}
           style={{
-            width: width * 1.3,
-            height: width * 1.3,
+            width:wp(130),
+            height: wp(130),
           }}
           resizeMode="contain"
         />
