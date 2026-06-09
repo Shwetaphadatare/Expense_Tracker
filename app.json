@@ -13,7 +13,7 @@
     "plugins": ["expo-secure-store", "expo-router"],
     "orientation": "portrait",
     "icon": "src/assets/splashscreen_logo.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "splash": {
       "image": "src/assets/splashscreen_logo.png",
       "resizeMode": "contain",

@@ -4,11 +4,12 @@ import { router } from 'expo-router';
 import { getOnboardingCompleted } from '@/services/storage/appStorage';
 import { getToken } from '@/services/storage/authStorage';
 import SplashScreen from '@/features/onboarding/splashScreen';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Index() {
   useEffect(() => {
     const initializeApp = async () => {
-      
+      await AsyncStorage.removeItem('onboarding_completed');
       // Show splash screen for 5 seconds
       await new Promise((resolve) => setTimeout(resolve, 5000));
       const onboarding = await getOnboardingCompleted();
